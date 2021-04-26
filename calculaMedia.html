@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculadora de media</title>
+   
+    <script>
+        function calcular(){
+            let nomeAluno = document.getElementById('nomeAluno').value;
+            let disciplina = document.getElementById('disciplina').value;
+            let nota1 = parseFloat(document.getElementById('nota1').value);
+            let nota2 = parseFloat(document.getElementById('nota2').value);
+            let nota3 = parseFloat(document.getElementById('nota3').value);
+            let media = (nota1 + nota2 + nota3) / 3;
+           
+            //processamento
+            if(media >= 7){
+                resultado = " Aluno: "+nomeAluno+'<br>'+" Disciplina: "+disciplina+'<br>'+ 
+               " Media: "+media.toFixed(2)+'<br>'+
+            "<span style='background-color:green;color:white'> Situacao: Aprovado "+'<br>';
+        
+            }else if(media >= 5){
+                resultado = " Aluno: "+nomeAluno+'<br>'+" Disciplina: "+disciplina+'<br>'+
+                " Media: "+media.toFixed(2)+'<br>'+
+            "<span style='background-color:yellow;color:gray'> Situacao: Recuperacao "+'<br>'; 
+            }
+            else{
+                resultado = " Aluno: "+nomeAluno+'<br>'+" Disciplina: "+disciplina+'<br>'+
+                " Media: "+media.toFixed(2)+'<br>'+
+            "<span style='background-color:red;color:white'> Situacao: Reprovado "+'<br>';             
+            }
+            //saida de dados
+            document.getElementById("resultado").innerHTML = resultado;
+        }
+    </script>
+    
+      <style>
+          body{
+              font-family: sans-serif;
+
+          }
+          input,select{
+              width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-sizing: border-box;
+          }
+          button{
+              width: 100%;
+              /* background-color: dodgerblue;
+              background-color: #1e90ff; */
+              background-color: rgb(30,144, 255);
+              color: white;
+              padding: 14px 20px;
+              margin: 8px 0;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer; 
+              font-size: 18px;
+          }
+          button:hover{
+            background-color: rgb(30,174, 255);
+          }
+          div{
+              border-radius: 5px;
+              background-color: #f2f2f2;
+              padding: 20px;
+              margin: 0 auto;
+              width: 50%;
+          }
+          label{
+              font-weight: bold;
+          }
+      </style>
+</head>
+<body>
+    <div>
+        <h2 style="text-align: center;">Calculadora de media</h2>
+        <form action="">
+            <label for="">Nome do aluno</label><br>
+            <input type="text" name="nomeAluno" id="nomeAluno" size="20">
+           
+            <label for="">Disciplina</label><br>
+            <select name="disciplina" id="disciplina">
+                <option value="">selecione a disciplina</option>
+                <option value="Portugues">Portugues</option>
+                <option value="Matematica">matematica</option>
+                <option value="Inglês">Ingles</option>
+                <option value="Geografia">Geografia</option>
+            </select><br>
+
+            <label for="">Nota 1</label><br>
+             <input type="number" name="nota1" id="nota1" size="20">
+            <label for="">Nota 02</label><br>
+            <input type="number" name="nota2" id="nota2" size="20"><br>
+            <label for="">Nota 03</label><br>
+            <input type="number" name="nota3" id="nota3" size="20"><br>
+
+        
+            <button type="button" onclick="calcular()">Calcular</button>
+            <hr>
+
+            <h3 id="resultado"></h3>
+
+             
+        </form>
+    </div>
+    
+</body>
+</html>
